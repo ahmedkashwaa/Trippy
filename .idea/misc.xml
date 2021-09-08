@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/drawable-v24/ic_email.xml" value="0.29814814814814816" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.29814814814814816" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.29814814814814816" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/drawable-v24/ic_more_vert_black_24dp.xml" value="0.33425925925925926" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/drawable-v24/ic_person.xml" value="0.3037037037037037" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/drawable-v24/input_bg.xml" value="0.29814814814814816" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/drawable/ic_add.xml" value="0.3388888888888889" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/drawable/ic_add_circle_outline_24px.xml" value="0.23703703703703705" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.3037037037037037" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.35555555555555557" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/drawable/ic_baseline_person_outline_24.xml" value="0.1" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/drawable/ic_history.xml" value="0.3037037037037037" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/drawable/ic_launcher_background.xml" value="0.29814814814814816" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/drawable/ic_note.xml" value="0.29814814814814816" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/drawable/ic_notrip.xml" value="0.29814814814814816" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/drawable/ic_pencil.xml" value="0.32314814814814813" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/drawable/ic_remove_circle_outline_24px.xml" value="0.23703703703703705" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/drawable/ic_save_.xml" value="0.32685185185185184" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/drawable/ic_search.xml" value="0.29814814814814816" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/drawable/ic_sync.xml" value="0.3037037037037037" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/layout/activity_add_note.xml" value="0.25" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/layout/activity_history.xml" value="0.1762917933130699" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/layout/activity_main2.xml" value="0.16" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/layout/activity_main3.xml" value="0.17249240121580547" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/layout/activity_note_details.xml" value="0.12760416666666666" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/layout/activity_splashscreen.xml" value="0.25" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/layout/activity_trip_details.xml" value="0.33" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/layout/add_note.xml" value="0.22" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/layout/add_notes_sayout_sample.xml" value="0.3625" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/layout/floating.xml" value="0.3029891304347826" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/layout/ic_remove_circle_outline_24px.xml" value="0.3625" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/layout/list_item.xml" value="0.17249240121580547" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/layout/main_notes.xml" value="0.17249240121580547" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/layout/no_history.xml" value="0.25" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/layout/no_notes.xml" value="0.12760416666666666" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/layout/no_trip.xml" value="0.1762917933130699" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/layout/note_list.xml" value="0.29030797101449274" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/layout/trip_list.xml" value="0.25" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/menu/icons.xml" value="0.25" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/menu/menu.xml" value="0.2916666666666667" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/menu/notes_menu.xml" value="0.3625" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/menu/save_note_menu.xml" value="0.34923076923076923" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/menu/settings_menu.xml" value="0.31296296296296294" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/menu/sync.xml" value="0.29259259259259257" />
+        <entry key="..\:/Users/kachwaa/Desktop/socket.io-master/registration/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3728205128205128" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="15" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

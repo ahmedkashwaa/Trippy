@@ -1,0 +1,87 @@
+package com.example.Project;
+
+public class Trip {
+    private String date ,time;
+    private String title,startPoint,endPoint;
+    private int id;
+    String status;
+    String notes;
+
+    public Trip() {
+    }
+
+    public Trip(int id,String date, String time, String title, String startPoint, String endPoint,String status,String notes) {
+        this.date = date;
+        this.time = time;
+        this.title = title;
+        this.startPoint = startPoint;
+        this.endPoint = endPoint;
+        this.id = id;
+        this.status = status;
+        this.notes = notes;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getStartPoint() {
+        return startPoint;
+    }
+
+    public void setStartPoint(String startPoint) {
+        this.startPoint = startPoint;
+    }
+
+    public String getEndPoint() {
+        return endPoint;
+    }
+
+    public void setEndPoint(String endPoint) {
+        this.endPoint = endPoint;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+}
