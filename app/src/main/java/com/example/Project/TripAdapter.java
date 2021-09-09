@@ -109,8 +109,6 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripViewHolder
             trips.get(position).setNotes("");
         }
 
-
-
         holder.startPoint.setText("From : "+trips.get(position).getStartPoint());
         holder.endPoint.setText("To : "+trips.get(position).getEndPoint());
         holder.tripTitle.setText(trips.get(position).getTitle());
@@ -133,17 +131,10 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripViewHolder
             e.printStackTrace();
         }
 
-     //
+
         holder.notes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-              /*  DBHelper helper = new DBHelper(activity);
-                SQLiteDatabase db = helper.getReadableDatabase();
-                String [] whereArgs = {String.valueOf(trips.get(position).getId())};
-                Cursor cursor= db.rawQuery("SELECT NOTES FROM TRIPS WHERE _id=? ",whereArgs);
-                    cursor.moveToNext();
-                    String notes = cursor.getString(cursor.getColumnIndex("NOTES")); */
 
                 PopupMenu pop = new PopupMenu(activity,v);
                 pop.inflate(R.menu.notes_menu);
@@ -158,8 +149,6 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripViewHolder
                     Toast.makeText(activity, "There are no Notes", Toast.LENGTH_SHORT).show();
                 }
 
-
-
             }
         });
 
@@ -172,7 +161,6 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripViewHolder
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
 
-
                         if(item.getItemId()==R.id.note){
                             Intent i = new Intent(activity,AddNoteActivity.class);
                             i.putExtra("id", trips.get(position).getId());
@@ -182,45 +170,23 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripViewHolder
                             i.putExtra("date", trips.get(position).getDate());
                             i.putExtra("time", trips.get(position).getTime());
                             activity.startActivity(i);
-
                         }
 
 
                         if (item.getItemId() == R.id.cancel) {
-                            DBHelper helper = new DBHelper(activity);
-                            SQLiteDatabase db = helper.getReadableDatabase();
-                            String [] whereArgs = {String.valueOf(trips.get(position).getId())};
-                            Cursor cursor= db.rawQuery("SELECT NOTES FROM TRIPS WHERE _id=? ",whereArgs);
-                            cursor.moveToNext();
-                            String notes = cursor.getString(cursor.getColumnIndex("NOTES"));
+
                             Toast.makeText(activity, "Canceled Trip!", Toast.LENGTH_LONG).show();
                             trips.get(position).setStatus("Canceled!");
                             //  holder.status.setText(trips.get(position).getStatus());
                             holder.status.setText("Canceled!");
-                            ContentValues values = new ContentValues();
-                            values.put("title", trips.get(position).getTitle());
-                            values.put("startPoint", trips.get(position).getStartPoint());
-                            values.put("endPoint", trips.get(position).getEndPoint());
-                            values.put("date", trips.get(position).getDate());
-                            values.put("time", trips.get(position).getTime());
-                            values.put("status", "Canceled!");
-                            values.put("NOTES", notes);
-                            DBHistory history = new DBHistory(activity);
-                            SQLiteDatabase db2 = history.getWritableDatabase();
-                            long id2 = db2.insert("TRIPS", null, values);
 
-                          //  DBHelper helper = new DBHelper(activity);
-                          //  SQLiteDatabase db = helper.getWritableDatabase();
-                            String[] args = {trips.get(position).getId() + ""};
-
-                            // DELETE FROM TRIPS WHERE _id == trips.get(position).getID()
-                            int deletedRows = db.delete("TRIPS", "_id ==?", args);
-
+                            changeState(trips.get(position).getTitle(),trips.get(position).getStartPoint(),trips.get(position).getEndPoint(),trips.get(position).getDate(),trips.get(position).getTime(),trips.get(position).getNotes(),trips.get(position).getId(),"Canceled!");
+                            // This Method delete the trip from the upcoming database and insert it into the History database
                             Intent intent = new Intent(activity, AlarmService.class);
                             PendingIntent pendingIntent = PendingIntent.getService(
                                     activity, (int)cal.getTimeInMillis(), intent, PendingIntent.FLAG_ONE_SHOT);
                             pendingIntent.cancel();
-                          reload();
+                             reload();
                         }
                         return false;
                     }
@@ -235,36 +201,12 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripViewHolder
         holder.start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DBHelper helper = new DBHelper(activity);
-                SQLiteDatabase db = helper.getReadableDatabase();
-                String [] whereArgs = {String.valueOf(trips.get(position).getId())};
-                Cursor cursor= db.rawQuery("SELECT NOTES FROM TRIPS WHERE _id=? ",whereArgs);
-                cursor.moveToNext();
-                String notes = cursor.getString(cursor.getColumnIndex("NOTES"));
-
-
 
                 trips.get(position).setStatus("Done!");
-                //   holder.status.setText(trips.get(position).getStatus());
                 holder.status.setText("Done!");
-                ContentValues values = new ContentValues();
-                values.put("title", trips.get(position).getTitle());
-                values.put("startPoint", trips.get(position).getStartPoint());
-                values.put("endPoint", trips.get(position).getEndPoint());
-                values.put("date", trips.get(position).getDate());
-                values.put("time", trips.get(position).getTime());
-                values.put("status", "Done!");
-                values.put("NOTES", notes);
-                DBHistory history = new DBHistory(activity);
-                SQLiteDatabase db2 = history.getWritableDatabase();
-                long id2 = db2.insert("TRIPS", null, values);
 
-              //  DBHelper helper = new DBHelper(activity);
-             //   SQLiteDatabase db = helper.getWritableDatabase();
-                String[] args = {trips.get(position).getId() + ""};
-
-                // DELETE FROM TRIPS WHERE _id == trips.get(position).getID()
-                int deletedRows = db.delete("TRIPS", "_id ==?", args);
+                changeState(trips.get(position).getTitle(),trips.get(position).getStartPoint(),trips.get(position).getEndPoint(),trips.get(position).getDate(),trips.get(position).getTime(),trips.get(position).getNotes(),trips.get(position).getId(),"Done!");
+                // This Method delete the trip from the upcoming database and insert it into the History database
                 notifyDataSetChanged();
                 Uri gmmIntentUri = Uri.parse("google.navigation:q=" + trips.get(position).getEndPoint());
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
@@ -272,14 +214,12 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripViewHolder
                 mapIntent.setPackage("com.google.android.apps.maps");
                 activity.startActivity(mapIntent);
                 Intent i = new Intent(activity,FloatingWindow.class);
-                i.putExtra("notes",notes);
+                i.putExtra("notes",trips.get(position).getNotes());
                 Intent intent = new Intent(activity, AlarmService.class);
                 PendingIntent pendingIntent = PendingIntent.getService(
                         activity, (int)cal.getTimeInMillis(), intent, PendingIntent.FLAG_ONE_SHOT);
                 pendingIntent.cancel();
                 activity.startService(i);
-
-            //    DisplayTrack(trips.get(position).getStartPoint(), trips.get(position).getEndPoint());
 
             }
         });
@@ -394,7 +334,25 @@ public void reload(){
 
 }
 
+    public void changeState(String title,String start,String end,String date,String time,String notes,int id,String state){
+        DBHelper helper = new DBHelper(activity);
+        SQLiteDatabase db = helper.getReadableDatabase();
 
+    ContentValues values = new ContentValues();
+        values.put("title", title);
+        values.put("startPoint", start);
+        values.put("endPoint", end);
+        values.put("date", date);
+        values.put("time", time);
+        values.put("status", state);
+        values.put("NOTES", notes);
+        DBHistory history = new DBHistory(activity);
+        SQLiteDatabase db2 = history.getWritableDatabase();
+         db2.insert("TRIPS", null, values);
+        String[] args = {id + ""};
+        // DELETE FROM TRIPS WHERE _id == trips.get(position).getID()
+        db.delete("TRIPS", "_id ==?", args);
+    }
 
 
 }
