@@ -62,7 +62,11 @@ public class TripDetails extends AppCompatActivity {
     Calendar mCalendar;
     Place place;
 
-
+String titleOld;
+String startOld;
+String endOld;
+String dateOld;
+String timeOld;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,6 +86,12 @@ public class TripDetails extends AppCompatActivity {
             endPoint.setText(getIntent().getStringExtra("endPoint"));
             textView_date.setText(getIntent().getStringExtra("date"));
             textView_time.setText(getIntent().getStringExtra("time"));
+
+            titleOld =getIntent().getStringExtra("title");
+            startOld =getIntent().getStringExtra("startPoint");
+            endOld = getIntent().getStringExtra("endPoint");
+            dateOld = getIntent().getStringExtra("date");
+            timeOld = getIntent().getStringExtra("time");
 
             Button update_btn = findViewById(R.id.btn_update);
             update_btn.setVisibility(View.VISIBLE);
@@ -230,10 +240,17 @@ public class TripDetails extends AppCompatActivity {
             Date datee = new Date();
 
             Calendar cal = Calendar.getInstance();
+            Calendar cal2 = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yy HH:mm", Locale.ENGLISH);
             try {
-                cal.setTime(sdf.parse(date+" "+time));// all done
+                cal.setTime(sdf.parse(date+" "+time)); // updated time
+                cal2.setTime(sdf.parse(dateOld+" "+timeOld)); // old time
+
                 if(datee.before(cal.getTime())){
+                    Intent intent = new Intent(TripDetails.this, AlarmService.class);
+                    PendingIntent pendingIntent = PendingIntent.getService(
+                            TripDetails.this, (int)cal2.getTimeInMillis(), intent, PendingIntent.FLAG_ONE_SHOT);
+                    pendingIntent.cancel();
                     HelperMethods.startScheduling(TripDetails.this,date,time,title,start,end);
                 }else {
                     Toast.makeText(TripDetails.this, "You have expired Trips please remove them", Toast.LENGTH_SHORT).show();

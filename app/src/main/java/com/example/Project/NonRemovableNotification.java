@@ -44,9 +44,16 @@ public class NonRemovableNotification extends Activity {
         intent.putExtra("date",date);
         intent.putExtra("time",time);
       //  startScheduling(context);
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yy HH:mm", Locale.ENGLISH);
+        try {
+            cal.setTime(sdf.parse(date+" "+time));// all done
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getService(context, 0 /* Request code */, intent,
+        PendingIntent pendingIntent = PendingIntent.getService(context, (int)cal.getTimeInMillis() /* Request code */, intent,
                 PendingIntent.FLAG_ONE_SHOT);
 
 
