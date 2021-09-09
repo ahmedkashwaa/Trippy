@@ -50,23 +50,16 @@ import java.util.Locale;
 
 public class TripDetails extends AppCompatActivity {
     EditText tripName,startPoint,endPoint;
-    TextView textView_date;
-    TextView textView_time;
+    TextView textView_date,textView_time;
     Button btnAdd;
-    FirebaseAuth mAuth;
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference ;
     private int receivedID;
     private boolean openAsUpdate = false;
 
-    Calendar mCalendar;
-    Place place;
+   // Calendar mCalendar;
+    //Place place;
 
-String titleOld;
-String startOld;
-String endOld;
-String dateOld;
-String timeOld;
+String titleOld,startOld,endOld,dateOld,timeOld;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -252,8 +245,6 @@ String timeOld;
                             TripDetails.this, (int)cal2.getTimeInMillis(), intent, PendingIntent.FLAG_ONE_SHOT);
                     pendingIntent.cancel();
                     HelperMethods.startScheduling(TripDetails.this,date,time,title,start,end);
-                }else {
-                    Toast.makeText(TripDetails.this, "You have expired Trips please remove them", Toast.LENGTH_SHORT).show();
                 }
             } catch (ParseException e) {
                 e.printStackTrace();
@@ -313,8 +304,6 @@ String timeOld;
                 cal.setTime(sdf.parse(date+" "+time));// all done
                 if(datee.before(cal.getTime())){
                     HelperMethods.startScheduling(TripDetails.this,date,time,title,start,end);
-                }else {
-                    Toast.makeText(TripDetails.this, "You have expired Trips please remove them", Toast.LENGTH_SHORT).show();
                 }
             } catch (ParseException e) {
                 e.printStackTrace();

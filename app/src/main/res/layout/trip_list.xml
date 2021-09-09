@@ -109,20 +109,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:weightSum="6"
             >
         <Button
             android:id="@+id/startTrip"
-            android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:layout_width="0dp"
             android:text="Start"
             android:gravity="center"
             android:layout_marginTop="25dp"
             />
             <ImageView
                 android:id="@+id/show"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/ic_pencil"/>
         </LinearLayout>
 
