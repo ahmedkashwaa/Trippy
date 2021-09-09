@@ -93,8 +93,8 @@ public class FloatingWindow extends Service {
 
         //Set the view while floating view is expanded.
         ListView listView = (ListView)mFloatingView.findViewById(R.id.listView);
-        Adapter adapter1 = new Adapter(getApplicationContext(),notess);
-        listView.setAdapter(adapter1);
+        Adapter adapter = new Adapter(getApplicationContext(),notess);
+        listView.setAdapter(adapter);
 
 
 

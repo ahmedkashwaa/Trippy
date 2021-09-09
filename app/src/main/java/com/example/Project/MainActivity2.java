@@ -175,24 +175,7 @@ public class MainActivity2 extends AppCompatActivity {
             String status = cursor.getString(6);
             trips.add(new TripModel(id,date,time,title,start,end,status));
 
-
-            Date datee = new Date();  //check trip time if expired
-            Calendar cal = Calendar.getInstance();
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yy HH:mm", Locale.ENGLISH);
-            try {
-                cal.setTime(sdf.parse(date+" "+time));
-                if(datee.before(cal.getTime())){
-                    HelperMethods.startScheduling(MainActivity2.this,date,time,title,start,end);
-                    // passing all trip data for HelperMethods to pass it then to the alert dialog and the service
-                }else {
-                    Toast.makeText(MainActivity2.this, "You have expired Trips please remove them", Toast.LENGTH_SHORT).show();
-                }
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
         }
-
 
         listTrips();   //to check if there is trips or no to show the empty trip layout
     }
