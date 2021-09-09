@@ -3,10 +3,12 @@ package com.example.Project;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -101,6 +103,29 @@ public class MainActivity2 extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
     if(item.getItemId()==R.id.Log_out){  // when the user logs out all data in SQL will be deleted with the method logout();
+        DBHelper helper = new DBHelper(this);
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor= db.rawQuery("SELECT * FROM TRIPS ",null);
+
+        while(cursor.moveToNext()){
+            int id = cursor.getInt(0);
+            String date = cursor.getString(4);
+            String time = cursor.getString(5);
+            Calendar cal = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yy HH:mm", Locale.ENGLISH);
+            try {
+                cal.setTime(sdf.parse(date+" "+time));
+
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            Intent intent = new Intent(MainActivity2.this, AlarmService.class);
+            PendingIntent pendingIntent = PendingIntent.getService(
+                    MainActivity2.this, (int)cal.getTimeInMillis(), intent, PendingIntent.FLAG_ONE_SHOT);
+            pendingIntent.cancel();
+
+        }
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder
 

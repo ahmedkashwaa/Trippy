@@ -88,7 +88,7 @@ public class NonRemovableNotification extends Activity {
 
         }
 
-        notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
+        notificationManager.notify((int)cal.getTimeInMillis() /* ID of notification */, notification);
 
     }
 
