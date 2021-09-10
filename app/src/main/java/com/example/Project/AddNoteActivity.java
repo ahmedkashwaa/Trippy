@@ -32,12 +32,10 @@ public class AddNoteActivity extends AppCompatActivity {
 
     LinearLayout notesLinearLayout;
 
-    String title;
-    String start;
-    String end;
-    String date;
-    String time;
+    String title,start,end,date,time;
+
     int id;
+    private boolean openAsUpdate = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,12 +44,29 @@ public class AddNoteActivity extends AppCompatActivity {
         noteTextField=findViewById(R.id.note_text_field);
         mNotesTextInputLayout.add(noteTextField);
 
+
+
       id = getIntent().getIntExtra("id",0);
          title= getIntent().getStringExtra("title");
          start=getIntent().getStringExtra("startPoint");
          end=getIntent().getStringExtra("endPoint");
          date=getIntent().getStringExtra("date");
        time=getIntent().getStringExtra("time");
+      String notess=getIntent().getStringExtra("NOTES");
+
+     try {
+         if (!notess.isEmpty()) {
+             setTitle("Update Note");
+
+             noteTextField.getEditText().setText(notess);
+             openAsUpdate = true;
+         } else {
+
+             setTitle("Add Note");
+         }
+     }catch (Exception e){
+
+     }
 
 
 

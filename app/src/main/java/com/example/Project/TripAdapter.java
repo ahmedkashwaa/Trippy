@@ -169,6 +169,7 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripViewHolder
                             i.putExtra("endPoint", trips.get(position).getEndPoint());
                             i.putExtra("date", trips.get(position).getDate());
                             i.putExtra("time", trips.get(position).getTime());
+                            i.putExtra("NOTES", trips.get(position).getNotes());
                             activity.startActivity(i);
                         }
 
