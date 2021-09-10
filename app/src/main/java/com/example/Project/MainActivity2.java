@@ -200,6 +200,19 @@ public class MainActivity2 extends AppCompatActivity {
             String status = cursor.getString(6);
             trips.add(new TripModel(id,date,time,title,start,end,status));
 
+            Date datee = new Date();
+            Calendar cal = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yy HH:mm", Locale.ENGLISH);
+            try {
+                cal.setTime(sdf.parse(date+" "+time));// all done
+                if(datee.before(cal.getTime())){
+                    HelperMethods.startScheduling(MainActivity2.this,date,time,title,start,end);
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+
         }
 
         listTrips();   //to check if there is trips or no to show the empty trip layout
