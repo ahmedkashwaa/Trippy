@@ -46,7 +46,7 @@ private ProgressDialog mLoadingBar ;
                 String Email = email.getText().toString();
                 String pass = password.getText().toString();
                 String passConfirm = confirmPassword.getText().toString();
-                if(name.isEmpty() || name.length()<7){
+                if(name.isEmpty()){
                    // Toast.makeText(this, "Your Name is not valid", Toast.LENGTH_SHORT).show();
                     showError (userName,"Your Name is not valid");
                 }
